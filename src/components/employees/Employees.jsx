@@ -16,6 +16,7 @@ import {
 import DeleteConfirmationModal from './DeleteEmployee';
 import UpdateDepartmentModal from './UpdateEmployee';
 import CreateDepartmentModal from './CreateEmployee';
+import { useGetAllUserQuery } from '@/app/service/user';
 
 // Import separate modal components
 
@@ -39,6 +40,10 @@ const Employees = () => {
   const [updateModalOpen, setUpdateModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState(null);
+
+ const {data}= useGetAllUserQuery()
+ console.log(data);
+ 
   
   const [departments, setDepartments] = useState([
     {

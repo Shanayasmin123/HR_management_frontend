@@ -10,6 +10,7 @@ import LeaveManagement from './components/leave/LeaveManagement';
 
 import Settings from './pages/Settings';
 import Employees from './components/employees/Employees';
+import AttendanceList from './components/Attendance/Attendances';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -27,7 +28,8 @@ function App() {
             <Route path="/employees" element={<Employees />} />
             <Route path="/employees/attendance" element={<EmployeeAttendance />} />
             <Route path="/leave-management" element={<LeaveManagement />} />
-            
+            <Route path="/attendance" element={<AttendanceList/>}/>
+            <Route path="/attendance/today" element={<AttendanceList />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
