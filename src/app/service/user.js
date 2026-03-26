@@ -84,5 +84,4 @@ export const {
     useUpdateUserMutation,
     useDeleteUserMutation,
     useLogoutUserMutation,
-  } =  userApi; 
-  
+  } =  userApi;
