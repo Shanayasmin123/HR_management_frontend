@@ -220,11 +220,6 @@ const Employees = () => {
     }
   };
 
-  const handleItemsPerPageChange = (e) => {
-    setItemsPerPage(Number(e.target.value));
-    setCurrentPage(1);
-  };
-
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     setCurrentPage(1);
@@ -256,7 +251,7 @@ const Employees = () => {
         email: newEmployeeData.email,
         mobile: newEmployeeData.mobile,
         gender: newEmployeeData.gender,
-        role: newEmployeeData.designation,
+        role: newEmployeeData.role,
         department: newEmployeeData.department,
         address: newEmployeeData.address,
         designation: newEmployeeData.designation,
@@ -266,7 +261,7 @@ const Employees = () => {
         joiningDate: newEmployeeData.joiningDate,
         lastPromotionDate: newEmployeeData.lastPromotionDate,
         workLocation: newEmployeeData.workLocation,
-        status: "Active",
+        status: "On Duty",
         skills: newEmployeeData.skills,
         experience: newEmployeeData.experience,
         about: newEmployeeData.about,
@@ -278,8 +273,9 @@ const Employees = () => {
       setCreateModalOpen(false);
       await refetch();
     } catch (err) {
-      console.error("Create error:", err);
-    }
+  console.log("🔥 FULL ERROR:", err);
+  console.log("🔥 BACKEND MESSAGE:", err?.data || err?.response?.data);
+}
   };
 
   // UPDATE EMPLOYEE
@@ -303,7 +299,9 @@ const Employees = () => {
         joiningDate: updatedEmployee.joiningDate,
         lastPromotionDate: updatedEmployee.lastPromotionDate,
         workLocation: updatedEmployee.workLocation,
-        skills: updatedEmployee.skills
+        skills: updatedEmployee.skills,
+        
+        
       };
 
       if (updatedEmployee.password) {

@@ -37,6 +37,7 @@ const Tooltip = ({ children, text, show }) => {
 const Sidebar = ({ sidebarOpen }) => {
   const location = useLocation();
   const [employeesOpen, setEmployeesOpen] = useState(false);
+  const [attendanceOpen, setAttendanceOpen] = useState(false);
   
   const menuItems = [
     { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
@@ -54,7 +55,16 @@ const Sidebar = ({ sidebarOpen }) => {
       ]
     },
     { path: '/leave-management', icon: CalendarDays, label: 'Leave Management' },
-    { path: '/attendance', icon: Clock, label: 'Attendance' },
+    {
+    type: 'dropdown',
+    icon: Clock,
+    label: 'Attendance',
+    isOpen: attendanceOpen,
+    setIsOpen: setAttendanceOpen,
+    subItems: [
+    { path: '/attendance/today', icon: Clock, label: "Today's Attendance" },
+    ]
+    },
     { path: '/holidays', icon: Gift, label: 'Holidays' },
     { path: '/clients', icon: Briefcase, label: 'Clients' },
     { path: '/payroll', icon: CreditCard, label: 'Payroll' },
